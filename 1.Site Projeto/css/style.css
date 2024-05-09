@@ -6,6 +6,7 @@ body {
 .tela {
   width: 100%; /* Garante que cada tela ocupe toda a largura da janela */
   height: 100vh; /* Garante que cada tela ocupe toda a altura da janela */
+  
 }
 
 .banner_foto {
@@ -73,10 +74,11 @@ body {
 
 .texto {
   font-family: 'Playfair Display', serif;
-  font-size: 54px;
+  font-size: 35px;
   font-weight: bolder;
   padding-left: 8vw;
   padding-top: 5vw;
+  padding-bottom: 0px;
 }
 
 .texto .descritivo {
@@ -127,3 +129,43 @@ button:active .button_top {
 }
 
 
+.titulo{
+  display: flex;
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: bolder;
+  justify-content: center;
+  color: white;
+  padding-top: 10vh;
+  margin-bottom: 2vh;
+
+}
+
+.text-corinthians{
+  display: flex;
+  align-items: center;
+  height: 50vh;
+  width: 500px;
+  padding-left: 8vw;
+
+}
+
+.text-corinthians a{
+  color: white;
+  font-size: 19px;
+ 
+}
+
+.card-image{
+ 
+  display: flex;
+  justify-content: end;
+
+}
+
+.card-image img{
+justify-content: right;
+display: flex;
+width: 600px;
+height: 400px;
+}
