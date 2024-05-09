@@ -8,13 +8,13 @@ body {
   height: 100vh; /* Garante que cada tela ocupe toda a altura da janela */
 }
 
-.banner_foto {
+.banner-cadastro {
   height: 100%;
   color: white;
   background-size: cover;
   background-position: center;
   justify-content: center;
-  background-image: url(img/Background/basilio.jpg);
+  background-image: url(../img/Background/torcidaDesfoque.jpg);
 }
 
 .header {
@@ -38,18 +38,18 @@ body {
   margin: auto;
 }
 
-.navbar img {
+.navbar-cadastro img {
   width: 120px;
   height: 70px;
   margin: 0px;
   padding: 0px;
 }
 
-.navbar img:hover {
+.navbar-cadastro img:hover {
   cursor: pointer;
 }
 
-.navbar {
+.navbar-cadastro {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
   height: 15vh;
@@ -66,7 +66,7 @@ body {
   font-weight: 800;
 }
 
-.navbar .buttom :hover {
+.navbar-cadastro .buttom :hover {
   color: #000000;
   font-style: normal;
 }
@@ -126,3 +126,44 @@ button:active .button_top {
   transform: translateY(0);
 }
 
+
+.card-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+  background-color: whitesmoke;
+  opacity: 0.8;
+  margin: auto;
+  border-radius: 50px;
+}
+
+.input {
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: 15px;
+  font-weight: bold;
+  color: #05060f99;
+  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.input:hover, .input:focus, .input-group:hover .input {
+  outline: none;
+  border-color: #05060f;
+}
+
+.input-group:hover .label, .input:focus {
+  color: #05060fc2;
+}
