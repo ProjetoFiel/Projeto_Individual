@@ -71,7 +71,7 @@ body {
   font-style: normal;
 }
 
-.texto {
+.texto-cadastro {
   font-family: 'Playfair Display', serif;
   font-size: 54px;
   font-weight: bolder;
@@ -79,7 +79,7 @@ body {
   padding-top: 5vw;
 }
 
-.texto .descritivo {
+.texto-cadastro .descritivo {
   font-family: 'Playfair Display', serif;
   font-size: 24px;
   justify-content: left;
