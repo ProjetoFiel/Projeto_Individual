@@ -190,7 +190,9 @@ button:active .button_top {
   height: 500px;
   align-items: center;
   border-radius: 15px;
-  box-shadow: 5px 5px 5px #323232;
+  -webkit-box-shadow: 50px 50px 3px 0px rgba(71, 70, 70, 1);
+  -moz-box-shadow: 50px 50px 3px 0px rgba(71, 70, 70, 1);
+  box-shadow: 50px 50px 3px 0px rgba(71, 70, 70, 1);
 }
 
 /*CSS CADASTRO*/
