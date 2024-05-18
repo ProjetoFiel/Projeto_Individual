@@ -58,7 +58,7 @@ html{
   margin: auto;
 }
 
-/*NavBar*/
+
 
 .navbar {
   position: fixed;
@@ -100,6 +100,8 @@ html{
   text-decoration: none;
   color: white;
 }
+
+
 
 /*Parte de texto da página*/
 .texto {
