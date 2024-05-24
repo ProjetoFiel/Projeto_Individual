@@ -331,6 +331,8 @@ button:active .button_top {
   margin: 5vh;
   margin-bottom: 5vh;
   margin-top: 4vh;
+  display: flex;
+  gap: 25%;
 }
 
 .ods-onu{
@@ -344,4 +346,18 @@ button:active .button_top {
 }
 .ods-onu img{
   border-radius: 15px;
+}
+
+.container-content{
+  width: 100vh;
+  height: 100%;
+  display: flex;
+  margin-top: 3%;
+  gap: 30%;
+  flex-direction:column;
+
+}
+
+.content{
+width: 100%;
 }

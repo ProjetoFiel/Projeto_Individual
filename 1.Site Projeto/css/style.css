@@ -227,8 +227,8 @@ button:active .button_top {
   font-family: "Playfair Display", serif;
   display: flex;
   justify-content: center;
-  height: 70vh;
-  width: 55vh;
+  height: 60vh;
+  width: 50vh;
   background-color: whitesmoke;
   margin: auto;
   margin-top: 10%;
@@ -298,6 +298,7 @@ button:active .button_top {
   justify-content: center;
   align-items: center;
   margin-top: 8%;
+  gap: 10px ;
 }
 
 .log-text a {
