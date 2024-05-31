@@ -5,8 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=0.8" />
   <title>Projeto Fiel - Login</title>
+
+  <script src="js/sessao.js"></script>
+  
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/cadastro.css" />
+  <link rel="stylesheet" href="css/estilo.css">
   <link rel="icon" href="assets/img/i.png" />
 
 </head>
@@ -14,6 +18,11 @@
 <body>
   <section>
     <div class="tela">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
       <div class="banner-cadastro">
         <video autoplay muted loop>
           <source  src="assets/vids/background-video.mp4">
@@ -32,11 +41,12 @@
               <div class="log-text">
                 <a>Não tem uma conta?<a href="cadastro.html" class="link-login">Crie sua conta!</a>
               </div>
-              <div class="card-buttom" onclick="cadastrar()">
+              <div class="card-buttom" onclick="entrar()">
                 <button>
-                  <a>CADASTRAR</a>
+                  <a>ENTRAR</a>
                 </button>
-              </div>            
+              </div> 
+              <div id="div_erros_login"></div>           
             </div>
           </div>
       </div>
@@ -45,11 +55,3 @@
 </body>
 
 </html>
-<script>
-  function cadastrar() {
-    
-
-
-
-  }
-</script>

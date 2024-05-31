@@ -29,13 +29,13 @@
             <div class="card-cadastro">
               <h1>CADASTRE-SE</h1>
               <label class="label">Nome</label>
-              <input autocomplete="off" name="Nome" id="input_nome" class="input" type="text">
+              <input autocomplete="off" name="Nome" id="nome_input" class="input" type="text">
               <label class="label">Email</label>
-              <input autocomplete="off" name="Nome" id="input_email" class="input" type="email">
+              <input autocomplete="off" name="Nome" id="email_input" class="input" type="email">
               <label class="label">Crie uma Senha</label>
-              <input autocomplete="off" name="Nome" id="input_senha" class="input" type="password">
+              <input autocomplete="off" name="Nome" id="senha_input" class="input" type="password">
               <label class="label">Redigite sua Senha</label>
-              <input autocomplete="off" name="Nome" id="input_senha_conf" class="input" type="password">
+              <input autocomplete="off" name="Nome" id="confirmacao_senha_input" class="input" type="password">
               <div class="log-text">
                 <a>Tem uma conta?<a href="login.html" class="link-login">Conecte-se</a>
               </div>
@@ -43,7 +43,12 @@
                 <button>
                   <a>CADASTRAR</a>
                 </button>
-              </div>           
+              </div>    
+              <div id="div_aguardar" class="loading-div">
+                <img src="assets/img/icons/circle-loading-black.gif" id="loading-gif" />
+              </div>
+      
+              <div id="div_erros_login"></div>       
             </div>
           </div>
       </div>
