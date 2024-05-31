@@ -1,178 +1,127 @@
-body {
-  margin: 0;
-  padding: 0;
+.tela{
+background-color: inherit;
 }
 
-.tela {
-  width: 100%; /* Garante que cada tela ocupe toda a largura da janela */
-  height: 100vh; /* Garante que cada tela ocupe toda a altura da janela */
-}
-
-.banner-cadastro {
-  height: 100%;
-  color: white;
-  background-size: cover;
-  background-position: center;
+.card-box {
+  font-family: "Montserrat", serif;
+  display: flex;
   justify-content: center;
-  background-image: url(../img/Background/torcidaDesfoque.jpg);
-}
-
-.header {
-  width: 100%;
-}
-
-/* Adiciona espaçamento entre as telas */
-.tela {
-  margin-bottom: 0px;
-  background-color: rgb(22,22,22);
-}
-
-.header a {
-  text-decoration: none;
-  color: white;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-  margin: auto;
-}
-
-.navbar-cadastro img {
-  width: 120px;
-  height: 70px;
-  margin: 0px;
-  padding: 0px;
-}
-
-.navbar-cadastro img:hover {
-  cursor: pointer;
-}
-
-.navbar-cadastro {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  display: flex;
-  height: 15vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  font-size: 18px;
-}
-
-.navbar :hover {
-  font-weight: 800;
-}
-
-.navbar-cadastro .buttom :hover {
-  color: #000000;
-  font-style: normal;
-}
-
-.texto-cadastro {
-  font-family: 'Playfair Display', serif;
-  font-size: 54px;
-  font-weight: bolder;
-  padding-left: 8vw;
-  padding-top: 5vw;
-}
-
-.texto-cadastro .descritivo {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  justify-content: left;
-}
-
-.buttom {
-  display: flex;
-  width: 20vw;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-button {
-  /* Variables */
-  --button_radius: 0.75em;
-  --button_color: #e8e8e8;
-  font-size: 17px;
-  font-weight: bold;
-  border: none;
-  border-radius: var(--button_radius);
-  background: var(--button_outline_color);
-}
-
-button .button_top {
-  display: block;
-  box-sizing: border-box;
-  border: 2px solid var(--button_outline_color);
-  border-radius: var(--button_radius);
-  padding: 0.75em 1.5em;
-  background: var(--button_color);
-  color: var(--button_outline_color); /* Cor do texto do botão */
-  transform: translateY(-0.2em);
-  transition: transform 0.1s ease;
-  opacity: 0.39;
-}
-
-button:hover .button_top {
-  /* Pull the button upwards when hovered */
-  transform: translateY(-0.33em);
-}
-
-button:active .button_top {
-  /* Push the button downwards when pressed */
-  transform: translateY(0);
-}
-
-
-.card-box{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  width: 500px;
+  height: 100vh;
+  width: 60vh;
   background-color: whitesmoke;
-  opacity: 0.8;
-  margin: auto;
-  border-radius: 50px;
+  /* margin: auto; */
+  /* margin-top: 10%; */
+  /* border-radius: 50px; */
+  text-align: center;
+  align-items: center;
+  opacity: 0.9;
+  flex-direction: column;
+
 }
 
-.card-box a{
+.card-box a {
   color: #000000;
   display: flex;
   justify-content: center;
-  font-size: 24px;
-  padding-bottom: 35px;
+  font-size: 15px;
   font-weight: 800;
+}
+
+.card-box h1 {
+  color: #000000;
+  margin-bottom: 20%;
 }
 
 .input {
   max-width: 190px;
+  font-family: "Montserrat", serif;
+  font-weight: 800;
   height: 44px;
   background-color: #05060f0a;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   padding: 0 1rem;
   border: 2px solid transparent;
   font-size: 1rem;
-  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+  transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+    margin-bottom: 10%;
 }
 
 .label {
   display: block;
-  margin-bottom: .3rem;
-  font-size: 15px;
+  font-family: "Montserrat", serif;
+  margin-bottom: 0.3rem;
+  font-size: 25px;
   font-weight: bold;
   color: #05060f99;
-  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+  transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
 }
 
-.input:hover, .input:focus, .input-group:hover .input {
+.input:hover,
+.input:focus,
+.input-group:hover .input {
   outline: none;
   border-color: #05060f;
 }
 
-.input-group:hover .label, .input:focus {
+.input-group:hover .label,
+.input:focus {
   color: #05060fc2;
+}
+
+.banner-cadastro {
+  height: 100vh;
+  color: white;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  /* background-image: url(../assets/img/Background/torcidaDesfoque.jpg); */
+}
+
+.goBack{
+  width: 100px;
+  height: 100px;
+}
+
+.goBack img{
+  height: 100px;
+  width: 100px;
+  justify-content: left;
+}
+
+
+.banner-cadastro video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+.log-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+  gap: 10px ;
+}
+
+.log-text a {
+  color: #05060f99;
+  width: fit-content;
+  height: fit-content;
+}
+
+.log-text .link-login {
+  color: rgb(19, 156, 246);
+}
+
+.log-text .link-login:hover {
+  color: rgb(16, 127, 202);
+  font-weight: 900;
 }
