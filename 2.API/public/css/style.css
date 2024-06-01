@@ -10,26 +10,23 @@ img {
   -webkit-user-drag: none;
 }
 
-
 body::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 12px; /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
-  background: black;        /* color of the tracking area */
+  background: black; /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: white;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid gray;  /* creates padding around scroll thumb */
+  background-color: white; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid gray; /* creates padding around scroll thumb */
 }
 
-
-html{
+html {
   scroll-behavior: smooth;
 }
-
 
 /*Tela OnePage Inicial*/
 
@@ -38,7 +35,7 @@ html{
   height: 100vh;
   background-color: rgba(30, 30, 30, 1);
 }
-.tela-hist{
+.tela-hist {
   width: 100%;
   height: 100vh;
   background-color: rgba(34, 34, 34, 1);
@@ -97,10 +94,9 @@ html{
   transition: 0.3s;
 }
 
-.navbar .buttom :hover {  
+.navbar .buttom :hover {
   color: #000000;
   font-style: normal;
-
 }
 
 .header a {
@@ -123,7 +119,6 @@ html{
   font-size: 24px;
   justify-content: left;
 }
-
 
 /*Estilização de botoes*/
 .buttom {
@@ -186,9 +181,6 @@ button:active .button_top {
   transform: translateY(0);
 }
 
-
-
-
 /*Titulo e texto da second section do site*/
 .titulo {
   display: flex;
@@ -228,20 +220,18 @@ button:active .button_top {
   box-shadow: 50px 50px 3px 0px rgba(71, 70, 70, 1);
 }
 
-
-
-/* Tela da ONU */ 
-.tela-sociedade{
+/* Tela da ONU */
+.tela-sociedade {
   width: 95%;
   height: 65%;
   margin: 5vh;
   margin-bottom: 5vh;
   margin-top: 4vh;
   display: flex;
-  gap: 25%;
+  gap: 20%;
 }
 
-.ods-onu{
+.ods-onu {
   display: flex;
   margin-left: 15vh;
   width: 30%;
@@ -250,20 +240,44 @@ button:active .button_top {
   flex-direction: column;
   gap: 4%;
 }
-.ods-onu img{
+.ods-onu img {
   border-radius: 15px;
 }
 
-.container-content{
+.container-content {
   width: 100vh;
   height: 100%;
   display: flex;
-  margin-top: 3%;
-  gap: 30%;
-  flex-direction:column;
-
+  margin-right: 15vh;
+  margin-top: 0.5%;
+  gap: 17%;
+  flex-direction: column;
 }
 
-.content{
-width: 100%;
+.content {
+  width: 100%;
+}
+
+.content-ods {
+  display: flex;
+  margin-right: 15vh;
+  width: 100%;
+  height: 20%;
+  justify-content: right;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 2%;
+  background-color: #555;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  height: 20vh;
+  align-items: center;
+  justify-content: center;
+}
+
+footer span {
+  display: flex;
 }
