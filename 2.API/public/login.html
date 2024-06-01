@@ -18,16 +18,18 @@
 <body>
   <section>
     <div class="tela">
-      <div class="alerta_erro">
-        <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
-        </div>
-    </div>
+      
       <div class="banner-cadastro">
         <video autoplay muted loop>
           <source  src="assets/vids/background-video.mp4">
          </video>
           
+         <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
           <div class="card-box", style="align-items: center;">
             <a href="index.html" class="goBack" >
               <img src="assets/img/icons/arrow.png" alt="">
@@ -35,9 +37,9 @@
             <div class="card-cadastro">
               <h1>LOGIN</h1>
               <label class="label">Email</label>
-              <input autocomplete="off" name="Nome" id="input_email" class="input" type="email">
+              <input autocomplete="off" name="Nome" id="email_input" class="input" type="email">
               <label class="label">Insira sua Senha</label>
-              <input autocomplete="off" name="Nome" id="input_senha_conf" class="input" type="password">
+              <input autocomplete="off" name="Nome" id="senha_input" class="input" type="password">
               <div class="log-text">
                 <a>Não tem uma conta?<a href="cadastro.html" class="link-login">Crie sua conta!</a>
               </div>
@@ -46,7 +48,10 @@
                   <a>ENTRAR</a>
                 </button>
               </div> 
-              <div id="div_erros_login"></div>           
+              <div id="div_aguardar" class="loading-div">
+                <img src="assets/img/icons/circle-loading-black.gif" id="loading-gif" />
+              </div>
+              <div id="div_erros_login"></div>             
             </div>
           </div>
       </div>
@@ -55,3 +60,76 @@
 </body>
 
 </html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
