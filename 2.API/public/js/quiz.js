@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const proximaPergunta = document.querySelector(".proxima-pergunta");
 
   botaoIniciar.addEventListener("click", iniciarQuiz);
+  proximaPergunta.addEventListener("click", mostrarProximaQuestao);
 
   let perguntaAtual = 0;
+  let acertos = 0;
 
   function iniciarQuiz() {
     botaoIniciar.classList.add("hide");
@@ -16,8 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function mostrarProximaQuestao() {
-    while (containerRespostas.firstChild) {
-      containerRespostas.removeChild(containerRespostas.firstChild);
+    resetarQuiz();
+
+    if (perguntas.length == perguntaAtual) {
+      return acabarJogo();
     }
 
     textoPergunta.textContent = perguntas[perguntaAtual].pergunta;
@@ -36,10 +40,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function resetarQuiz() {
+    while (containerRespostas.firstChild) {
+      containerRespostas.removeChild(containerRespostas.firstChild);
+    }
+
+    document.getElementById("imagem").innerHTML = ``;
+    proximaPergunta.classList.add("hide");
+  }
+
   function selecionarResposta(event) {
     const respostaClickada = event.target;
 
     if (respostaClickada.dataset.correct) {
+      acertos++
       document.getElementById(
         "imagem"
       ).innerHTML = `<img src="../assets/img/cassioFeliz.jpg" alt="" />`;
@@ -62,6 +76,37 @@ document.addEventListener("DOMContentLoaded", function () {
     proximaPergunta.classList.remove("hide");
     perguntaAtual++;
   }
+
+  function acabarJogo() {
+    const totalPerguntas = perguntas.length
+    const totalAcertos = (acertos / totalPerguntas) * 100
+
+    let mensagem = "";
+
+    switch (true) {
+      case totalAcertos >= 90:
+        mensagem = "Parábens você foi muito bem";
+        break;
+      case totalAcertos >= 70:
+        mensagem = "Muito bom!";
+        break;
+      case totalAcertos >= 50:
+        mensagem = "Você foi bem, nada mais que isso";
+        break;
+      default:
+        mensagem = "Pode melhorar...";
+    }
+
+    containerPerguntas.innerHTML = `
+    <p class= "mensagem-final">
+    Você acertou ${acertos} de ${totalPerguntas} perguntas!
+    <span>Resultado: ${mensagem}</span>
+    </p>
+    <button  onclick =window.location.reload() class="button">
+    Refazer Quiz
+    </button>
+    `;
+  }
 });
 
 const perguntas = [
@@ -75,7 +120,7 @@ const perguntas = [
     ],
   },
   {
-    pergunta: "Qual o meu nome completo?",
+    pergunta: "Qual o meu nome teste?",
     respostas: [
       { texto: "Kauan", correct: false },
       { texto: "Kauan", correct: false },

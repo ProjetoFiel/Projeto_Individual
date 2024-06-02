@@ -123,3 +123,13 @@ button {
 .resposta:disabled {
   cursor: not-allowed;
 }
+
+.mensagem-final{
+  font-size: 20px;
+  text-align: center;
+}
+
+.mensagem-final span{
+  display: block;
+  margin-top: 8px;
+}
