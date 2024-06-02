@@ -111,21 +111,129 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const perguntas = [
   {
-    pergunta: "Qual o meu nome completo?",
+    pergunta: "Qual foi o ano de fundação do Corinthians?",
     respostas: [
-      { texto: "Kauan", correct: false },
-      { texto: "Kauan", correct: false },
-      { texto: "Kauan", correct: false },
-      { texto: "Kauan Paschoal dos santos", correct: true },
+      { texto: "1911", correct: false },
+      { texto: "1908", correct: false },
+      { texto: "1912", correct: false },
+      { texto: "1910", correct: true },
     ],
   },
   {
-    pergunta: "Qual o meu nome teste?",
+    pergunta: "Qual é o apelido do Corinthians?",
     respostas: [
-      { texto: "Kauan", correct: false },
-      { texto: "Kauan", correct: false },
-      { texto: "Kauan", correct: false },
-      { texto: "Kauan Paschoal dos santos", correct: true },
+      { texto: "Tricolor", correct: false },
+      { texto: "Timão", correct: true },
+      { texto: "Verdão", correct: false },
+      { texto: "Raposa", correct: false },
+    ],
+  },{
+    pergunta: "Quantas vezes o Corinthians venceu o Campeonato Brasileiro até 2023?",
+    respostas: [
+      { texto: "7", correct: true },
+      { texto: "8", correct: false },
+      { texto: "6", correct: false },
+      { texto: "9", correct: false },
+    ],
+  },{
+    pergunta: "Qual estádio é a casa do Corinthians desde 2014?",
+    respostas: [
+      { texto: "Estádio do Morumbi", correct: false },
+      { texto: "Allianz Parque", correct: false },
+      { texto: "Neo Quimica Arena", correct: true },
+      { texto: "Pacaembu", correct: false },
+    ],
+  },{
+    pergunta: "Quem é o maior artilheiro da história do Corinthians?",
+    respostas: [
+      { texto: "Marcelinho Carioca", correct: false },
+      { texto: "Baltazar", correct: false },
+      { texto: "Ronaldo", correct: false },
+      { texto: "Cláudio Christóvam", correct: true },
+    ],
+  },{
+    pergunta: "O Corinthians venceu a Copa Libertadores pela primeira vez em qual ano?",
+    respostas: [
+      { texto: "2011", correct: false },
+      { texto: "2012", correct: true },
+      { texto: "2013", correct: false },
+      { texto: "2014", correct: false },
+    ],
+  },{
+    pergunta: "Quantas vezes o Corinthians Feminino conquistou a Copa Libertadores da América?",
+    respostas: [
+      { texto: "1", correct: false },
+      { texto: "2", correct: false },
+      { texto: "3", correct: true },
+      { texto: "4", correct: false },
+    ],
+  },{
+    pergunta: "Em que ano o Corinthians conquistou seu primeiro título mundial de clubes?",
+    respostas: [
+      { texto: "1999", correct: false },
+      { texto: "2012", correct: false },
+      { texto: "2000", correct: true },
+      { texto: "2005", correct: false },
+    ],
+  },{
+    pergunta: "Qual jogador é conhecido como o 'Pé de Anjo' do Corinthians?",
+    respostas: [
+      { texto: "Sócrates", correct: false },
+      { texto: "Rivellino", correct: false },
+      { texto: "Marcelinho Carioca", correct: true },
+      { texto: "Neto", correct: false },
+    ],
+  },{
+    pergunta: "O Corinthians foi campeão invicto da Libertadores em 2012. (Verdadeiro ou Falso)",
+    respostas: [
+      { texto: "Verdadeiro", correct: true },
+      { texto: "Falso", correct: false }
+    ],
+  },{
+    pergunta: "Quem foi o técnico do Corinthians na conquista do Mundial de Clubes de 2012?",
+    respostas: [
+      { texto: "Mano Menezes", correct: false },
+      { texto: "Tite", correct: true },
+      { texto: "Vanderlei Luxemburgo", correct: false },
+      { texto: "Fábio Carille", correct: false },
+    ],
+  },{
+    pergunta: "O mascote oficial do Corinthians é o Gavião. (Verdadeiro ou Falso)",
+    respostas: [
+      { texto: "Verdadeiro", correct: false },
+      { texto: "Falso", correct: true }
+    ],
+  },{
+    pergunta: "Em que ano o Corinthians inaugurou seu estádio",
+    respostas: [
+      { texto: "2012", correct: false },
+      { texto: "2013", correct: false },
+      { texto: "2014", correct: true },
+      { texto: "2015", correct: false },
+    ],
+  },{
+    pergunta: "Qual foi o movimento social mais importante na história do Corinthians?",
+    respostas: [
+      { texto: "Movimento Corinthiano por um Futebol Mais Popular", correct: false },
+      { texto: "Gaviões da Fiel", correct: false },
+      { texto: "Democracia Corinthiana", correct: true },
+      { texto: "Movimento Corinthiano Contra a Homofobia", correct: false },
+    ],
+  },{
+    pergunta: " Qual foi o ano oficial de fundação do Corinthians Feminino?",
+    respostas: [
+      { texto: "1987", correct: false },
+      { texto: "1997", correct: true },
+      { texto: "2007", correct: false },
+      { texto: "2017", correct: false },
+    ],
+  },{
+    pergunta: "Complete a frase de Sócrates, 'Eu quero morrer num domingo...'",
+    respostas: [
+      { texto: "certo de que o Timão estará em campo, honrando o meu legado.", correct: false },
+      { texto: "e com o Corinthians Campeão.", correct: true },
+      { texto: "para que, no dia do meu funeral, as ruas de São Paulo se vistam de preto e branco.", correct: false },
+      { texto: "a certeza de que, enquanto o Corinthians existir, uma parte de mim continuará viva.", correct: false },
     ],
   },
 ];
