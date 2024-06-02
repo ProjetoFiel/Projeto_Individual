@@ -24,8 +24,10 @@ function aguardar() {
 }
 
 function finalizarAguardar(texto) {
-    var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
+    var divAguardar = document.getElementsByClassName("loading-div");
+    if (divAguardar.length > 0) { // Check if any elements were found
+        divAguardar[0].style.display = "none"; // Select the first element in the collection
+    }
 
     var divErrosLogin = document.getElementById("div_erros_login");
     if (texto) {
@@ -33,4 +35,5 @@ function finalizarAguardar(texto) {
         divErrosLogin.innerHTML = texto;
     }
 }
+
 
