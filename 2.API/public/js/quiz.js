@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.getElementById("imagem").innerHTML = ``;
+    document.getElementById("info-usuario").innerHTML = ""
     proximaPergunta.classList.add("hide");
   }
 
@@ -57,10 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById(
         "imagem"
       ).innerHTML = `<img src="../assets/img/cassioFeliz.jpg" alt="" />`;
+      document.getElementById("info-usuario").innerHTML = "Você acertou! :)"
+
+
     } else {
       document.getElementById(
         "imagem"
       ).innerHTML = ` <img src="../assets/img/RenatoTriste.jpg" alt="" />`;
+      document.getElementById("info-usuario").innerHTML = "Você errou :("
     }
 
     document.querySelectorAll(".resposta").forEach((button) => {
@@ -107,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
     </button>
     `;
   }
+
+
 });
 
 const perguntas = [

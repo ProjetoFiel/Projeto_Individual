@@ -28,7 +28,7 @@ function cadastrar() {
     mensagem_erro.innerHTML =
       "(Sua confirmação de senha deve ser igual a sua senha)";
     return false;
-  } else if (senhaVar.length >= 6) {
+  } else if (senhaVar.length < 6) {
     cardErro.style.display = "block";
     mensagem_erro.innerHTML = "(Sua senha deve conter ao menos 6 caracteres)";
     return false;
