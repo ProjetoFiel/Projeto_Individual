@@ -22,18 +22,21 @@ function cadastrar() {
     cardErro.style.display = "block";
     mensagem_erro.innerHTML =
       "(O seu Email deve conter pelo menos 1 caracter especial)";
+    finalizarAguardar();
     return false;
   } else if (senhaVar != confirmacaoSenhaVar) {
     cardErro.style.display = "block";
     mensagem_erro.innerHTML =
       "(Sua confirmação de senha deve ser igual a sua senha)";
+    finalizarAguardar();
     return false;
   } else if (senhaVar.length < 6) {
     cardErro.style.display = "block";
     mensagem_erro.innerHTML = "(Sua senha deve conter ao menos 6 caracteres)";
+    finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(sumirMensagem, 10000);
     cardErro.style.display = "block";
     mensagem_erro.innerHTML = "(Sendo redirecionado ao login)";
 

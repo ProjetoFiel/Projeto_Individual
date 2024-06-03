@@ -11,7 +11,7 @@ function entrar() {
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(sumirMensagem, 6500);
   }
 
   console.log("FORM LOGIN: ", emailVar);

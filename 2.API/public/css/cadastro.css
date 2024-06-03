@@ -1,5 +1,5 @@
-.tela{
-background-color: inherit;
+.tela {
+  background-color: inherit;
 }
 
 .card-box {
@@ -16,7 +16,6 @@ background-color: inherit;
   align-items: center;
   opacity: 0.9;
   flex-direction: column;
-
 }
 
 .card-box a {
@@ -45,7 +44,7 @@ background-color: inherit;
   transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
     color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
     background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
-    margin-bottom: 10%;
+  margin-bottom: 10%;
 }
 
 .label {
@@ -77,20 +76,18 @@ background-color: inherit;
   background-size: cover;
   background-position: center;
   justify-content: center;
-  /* background-image: url(../assets/img/Background/torcidaDesfoque.jpg); */
 }
 
-.goBack{
+.goBack {
   width: 100px;
   height: 100px;
 }
 
-.goBack img{
+.goBack img {
   height: 100px;
   width: 100px;
   justify-content: left;
 }
-
 
 .banner-cadastro video {
   position: absolute;
@@ -108,7 +105,7 @@ background-color: inherit;
   justify-content: center;
   align-items: center;
   margin-top: 8%;
-  gap: 10px ;
+  gap: 10px;
 }
 
 .log-text a {
@@ -123,5 +120,5 @@ background-color: inherit;
 
 .log-text .link-login:hover {
   color: rgb(16, 127, 202);
-  font-weight: 900;
+  filter: brightness(0.8);
 }

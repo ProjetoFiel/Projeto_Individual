@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+::selection {
+  color: white;
+  background: rgba(93, 92, 92, 0.458);
+}
 body {
   margin: 0;
   padding: 0;
@@ -189,7 +193,6 @@ button:active .button_top {
   font-weight: bolder;
   justify-content: center;
   color: white;
-  /* margin-bottom: 5vh; */
 }
 
 .text-corinthians {
@@ -198,7 +201,6 @@ button:active .button_top {
   height: 50vh;
   padding-left: 10vw;
   padding-right: 10vw;
-  
 }
 
 .text-corinthians a {
@@ -222,12 +224,21 @@ button:active .button_top {
   box-shadow: 50px 50px 3px 0px rgba(71, 70, 70, 1);
 }
 
-.box-texto{
+.box-texto {
   font-size: 20px;
   margin-top: 10%;
   margin-right: 10%;
 }
 
+.box-texto-democracia {
+  font-size: 20px;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.box-texto-eu {
+  font-size: 20px;
+}
 
 /* Tela da ONU */
 .tela-sociedade {
@@ -289,4 +300,20 @@ footer {
 
 footer span {
   display: flex;
+  margin-right: 15px;
+}
+
+footer img {
+  height: 80px;
+  width: 80px;
+}
+
+footer .github {
+  height: 50px;
+  width: 50px;
+}
+
+footer img:hover {
+  cursor: pointer;
+  scale: 1.1;
 }

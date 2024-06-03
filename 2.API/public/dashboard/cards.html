@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <link rel="shortcut icon" href="../assets/img/i.png" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,140 +14,117 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body onload="validarSessao()">
+  <body onload="validarSessao()">
     <div class="janela">
-        <div class="header-left dash-header">
-            <h1>Projeto Fiel</h1>
+      <div class="header-left dash-header">
+        <h1>Projeto Fiel</h1>
 
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Visão Geral</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Quiz</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Histórias</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
+        <div class="hello">
+          <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
 
-        <div class="dash">
-            <div class="tela-grafico">
-                <div class="kpi-grafico">
-                    <div class="kpi1">
-                        <span>Total de Vezes jogadas:</span>
-                        <span><span id="kpiVezesJogadas">0</span> Vezes jogadas</span>
-                    </div>
-                    <div class="kpi2">
-                        <span>Pontuação Média dos Jogadores:</span>
-                        <span><span id="mediaPontuacao">0</span> de 16 pontos possíveis</span>
-                    </div>
-                </div>
-                <div class="dados-grafico">
-                    <div class="grafico1">
-                        <div>
-                            <canvas id="acertosPorPergunta"></canvas>
-                        </div>
-                    </div>
-                    <div class="grafico2">
-                        <div>
-                            <canvas id="myChart2"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="btn-nav">
+          <h3>Visão Geral</h3>
         </div>
+
+        <div class="btn-nav-white">
+          <a href="./dashboard.html">
+            <h3>Quiz</h3>
+          </a>
+        </div>
+
+        <div class="btn-nav-white">
+          <a href="./mural.html">
+            <h3>Mural de Histórias</h3>
+          </a>
+        </div>
+
+        <div class="btn-logout" onclick="limparSessao()">
+          <h3>Sair</h3>
+        </div>
+      </div>
+
+      <div class="dash">
+        <div class="tela-grafico">
+          <div class="kpi-grafico">
+            <div class="kpi1">
+              <span>Sua Pontuação Média:</span>
+              <span
+                ><span id="mediaPontuacaoJogador">0</span> de 16 pontos
+                possíveis</span
+              >
+            </div>
+            <div class="kpi2">
+              <span>Pontuação Média dos Jogadores:</span>
+              <span
+                ><span id="mediaPontuacao">0</span> de 16 pontos possíveis</span
+              >
+            </div>
+          </div>
+          <div class="dados-grafico">
+            <div class="grafico2">
+              <div>
+                <canvas id="myChart2"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('b_usuario').innerHTML = sessionStorage.NOME_USUARIO;
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("b_usuario").innerHTML =
+          sessionStorage.NOME_USUARIO;
 
-            const ctx = document.getElementById('acertosPorPergunta').getContext('2d');
-            const acertosPorPergunta = [10, 8, 7, 9, 5, 6, 3, 7, 8, 9, 4, 5, 6, 8, 7, 2];
-            const perguntas = [
-                "Pergunta 1", "Pergunta 2", "Pergunta 3", "Pergunta 4", "Pergunta 5",
-                "Pergunta 6", "Pergunta 7", "Pergunta 8", "Pergunta 9", "Pergunta 10",
-                "Pergunta 11", "Pergunta 12", "Pergunta 13", "Pergunta 14", "Pergunta 15", "Pergunta 16"
-            ];
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: perguntas,
-                    datasets: [{
-                        label: 'Acertos por Pergunta',
-                        data: acertosPorPergunta,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-
-            const ctx2 = document.getElementById('myChart2').getContext('2d');
-            new Chart(ctx2, {
-                type: 'pie',
-                data: {
-                    labels: ['10 ou menos', 'até 15', 'Gabaritaram'],
-                    datasets: [{
-                        label: 'Distribuição dos resultados do quiz',
-                        data: [12, 19, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            enabled: true,
-                        }
-                    }
-                }
-            });
+        const ctx2 = document.getElementById("myChart2").getContext("2d");
+        new Chart(ctx2, {
+          type: "pie",
+          data: {
+            labels: ["10 ou menos", "até 15", "Gabaritaram"],
+            datasets: [
+              {
+                label: "Distribuição dos resultados do quiz",
+                data: [12, 19, 3],
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.6)",
+                  "rgba(54, 162, 235, 0.6)",
+                  "rgba(255, 206, 86, 0.6)",
+                  "rgba(75, 192, 192, 0.6)",
+                  "rgba(153, 102, 255, 0.6)",
+                  "rgba(255, 159, 64, 0.6)",
+                ],
+                borderColor: [
+                  "rgba(255, 99, 132, 1)",
+                  "rgba(54, 162, 235, 1)",
+                  "rgba(255, 206, 86, 1)",
+                  "rgba(75, 192, 192, 1)",
+                  "rgba(153, 102, 255, 1)",
+                  "rgba(255, 159, 64, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: "top",
+              },
+              tooltip: {
+                enabled: true,
+              },
+            },
+          },
         });
+      });
     </script>
-</body>
+  </body>
 </html>
