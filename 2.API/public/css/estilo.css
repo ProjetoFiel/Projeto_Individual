@@ -37,6 +37,14 @@ body {
 
 #div_erros_login {
   display: none;
+  margin-top:10px;
+  color: black;
+  width: fit-content;
+}
+
+.container-erro{
+  display: flex;
+  justify-content: center;
 }
 
 /* FORMULARIO */

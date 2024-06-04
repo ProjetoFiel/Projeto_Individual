@@ -29,16 +29,17 @@
           <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
 
-        <div class="btn-nav">
-          <h3>Visão Geral</h3>
-        </div>
-
         <div class="btn-nav-white">
           <a href="./dashboard.html">
             <h3>Quiz</h3>
           </a>
         </div>
 
+        <div class="btn-nav">
+          <h3>Visão Geral</h3>
+        </div>
+
+      
         <div class="btn-nav-white">
           <a href="./mural.html">
             <h3>Mural de Histórias</h3>
@@ -54,16 +55,16 @@
         <div class="tela-grafico">
           <div class="kpi-grafico">
             <div class="kpi1">
-              <span>Sua Pontuação Média:</span>
+              <span>Sua Ultima Pontuação:</span>
               <span
-                ><span id="mediaPontuacaoJogador">0</span> de 16 pontos
+                ><span id="ultimaPontuacao">0</span> de 16 pontos
                 possíveis</span
               >
             </div>
             <div class="kpi2">
               <span>Pontuação Média dos Jogadores:</span>
               <span
-                ><span id="mediaPontuacao">0</span> de 16 pontos possíveis</span
+                ><span id="mediaPontuacaoJogador">0</span> de 16 pontos possíveis</span
               >
             </div>
           </div>
@@ -79,9 +80,32 @@
     </div>
 
     <script>
+
+      const pontuacao = sessionStorage.getItem('Pontos');
+      ultimaPontuacao.innerHTML = `${pontuacao}`
+
       document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("b_usuario").innerHTML =
-          sessionStorage.NOME_USUARIO;
+        // Obtém o ID do usuário da sessão
+        const idUsuario = sessionStorage.getItem('ID_USUARIO');
+        
+        if (idUsuario) {
+          // Faz uma requisição para obter a pontuação mais recente do usuário
+          fetch(`/quiz/listarPontos`)
+            .then(response => response.json())
+            .then(data => {
+              const ultimaPontuacao = data[0]["avg(qtdPontos)"];
+              // [data.length - 1].qtdPontos || 0;
+              document.getElementById('mediaPontuacaoJogador').textContent = Math.floor(parseFloat(ultimaPontuacao))
+            })
+            .catch(error => {
+              console.error('Erro ao obter pontuação:', error);
+            });
+        } else {
+          console.error('ID do usuário não encontrado na sessão.');
+        }
+
+        // Exibe o nome do usuário
+        document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
 
         const ctx2 = document.getElementById("myChart2").getContext("2d");
         new Chart(ctx2, {
