@@ -68,6 +68,9 @@
               >
             </div>
           </div>
+          <div class="card-grafico">
+          <div class="titulo-grafico"><p>Pontuação dos Jogadores no Quiz</p></div>
+        </div>
           <div class="dados-grafico">
             <div class="grafico2">
               <div>
@@ -82,7 +85,10 @@
     <script>
 
       const pontuacao = sessionStorage.getItem('Pontos');
-      ultimaPontuacao.innerHTML = `${pontuacao}`
+      if(pontuacao == null){
+        ultimaPontuacao.innerHTML = `0`
+      }else{
+      ultimaPontuacao.innerHTML = `${pontuacao}`}
 
       document.addEventListener("DOMContentLoaded", function () {
         // Obtém o ID do usuário da sessão
@@ -107,11 +113,76 @@
         // Exibe o nome do usuário
         document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         const ctx2 = document.getElementById("myChart2").getContext("2d");
         new Chart(ctx2, {
           type: "pie",
           data: {
-            labels: ["10 ou menos", "até 15", "Gabaritaram"],
+            labels: ["até 10", "até 15", "16"],
             datasets: [
               {
                 label: "Distribuição dos resultados do quiz",
