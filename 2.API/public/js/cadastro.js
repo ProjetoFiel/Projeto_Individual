@@ -13,21 +13,29 @@ function cadastrar() {
     confirmacaoSenhaVar == ""
   ) {
     cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "(Mensagem de erro para todos os campos em branco)";
-
+    mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
     finalizarAguardar();
     return false;
-  } else if (emailVar.indexOf("@") < 0 && emailVar.indexOf("#")) {
+  }
+
+  // Verificação de números no nome
+  for (var i = 0; i < nomeVar.length; i++) {
+    if (!isNaN(nomeVar[i]) && nomeVar[i] !== ' ') {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(O nome não deve conter números)";
+      finalizarAguardar();
+      return false;
+    }
+  }
+
+  if (emailVar.indexOf("@") < 0 && emailVar.indexOf("#") < 0) {
     cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "(O seu Email deve conter pelo menos 1 caracter especial)";
+    mensagem_erro.innerHTML = "(O seu Email deve conter pelo menos 1 caracter especial)";
     finalizarAguardar();
     return false;
   } else if (senhaVar != confirmacaoSenhaVar) {
     cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "(Sua confirmação de senha deve ser igual a sua senha)";
+    mensagem_erro.innerHTML = "(Sua confirmação de senha deve ser igual a sua senha)";
     finalizarAguardar();
     return false;
   } else if (senhaVar.length < 6) {
@@ -56,13 +64,11 @@ function cadastrar() {
 
         if (resposta.ok) {
           cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
             window.location = "login.html";
-          }, "2000");
+          }, 2000);
 
           limparFormulario();
           finalizarAguardar();
