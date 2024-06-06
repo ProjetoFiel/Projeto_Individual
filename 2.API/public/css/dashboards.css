@@ -335,6 +335,7 @@ canvas {
 
 .janela {
   display: flex;
+  align-items: center;
   /* width: 100vw; */
 }
 
@@ -433,6 +434,10 @@ canvas {
   cursor: pointer;
 }
 
+.btn-logout:hover{
+  filter: brightness(0.8);
+  transform: scale(1.1);
+}
 
 .container p{
   font-size: 20px;
@@ -469,7 +474,7 @@ canvas {
 
 .dados-grafico{
   width: 100%;
-  height: 52%;
+  height: 50%;
   padding-top: 4%;
   display: flex;
   
@@ -491,6 +496,7 @@ canvas {
   width: 60%;
   height: 10%;
   border-radius: 25px;
+  padding-bottom: 10px;
 }
 
 .card-grafico{
@@ -511,8 +517,8 @@ canvas {
 }
 
 .grafico2{
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 300px;
   background-color: white;
 }
 

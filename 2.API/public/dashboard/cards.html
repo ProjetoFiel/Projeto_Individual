@@ -1,225 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <link rel="shortcut icon" href="../assets/img/i.png" type="image/x-icon" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projeto Fiel | Gráficos</title>
 
-    <link rel="stylesheet" href="../css/dashboards.css" />
-    <link rel="stylesheet" href="../css/estilo.css" />
+<head>
+  <link rel="shortcut icon" href="../assets/img/i.png" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Fiel | Gráficos</title>
 
-    <script src="../js/sessao.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/dashboards.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <script src="../js/sessao.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <body onload="validarSessao()">
-    <div class="janela">
-      <div class="header-left dash-header">
-        <h1>Projeto Fiel</h1>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+</head>
 
-        <div class="hello">
-          <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-        </div>
+<body onload="validarSessao(), buscarPontuacao()">
+  <div class="janela">
+    <div class="header-left dash-header">
+      <h1>Projeto Fiel</h1>
 
-        <div class="btn-nav-white">
-          <a href="./dashboard.html">
-            <h3>Quiz</h3>
-          </a>
-        </div>
-
-        <div class="btn-nav">
-          <h3>Visão Geral</h3>
-        </div>
-
-      
-        <div class="btn-nav-white">
-          <a href="./mural.html">
-            <h3>Mural de Histórias</h3>
-          </a>
-        </div>
-
-        <div class="btn-logout" onclick="limparSessao()">
-          <h3>Sair</h3>
-        </div>
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
       </div>
 
-      <div class="dash">
-        <div class="tela-grafico">
-          <div class="kpi-grafico">
-            <div class="kpi1">
-              <span>Sua Ultima Pontuação:</span>
-              <span
-                ><span id="ultimaPontuacao">0</span> de 16 pontos
-                possíveis</span
-              >
-            </div>
-            <div class="kpi2">
-              <span>Pontuação Média dos Jogadores:</span>
-              <span
-                ><span id="mediaPontuacaoJogador">0</span> de 16 pontos possíveis</span
-              >
-            </div>
+      <div class="btn-nav-white">
+        <a href="./dashboard.html">
+          <h3>Quiz</h3>
+        </a>
+      </div>
+
+      <div class="btn-nav">
+        <h3>Visão Geral</h3>
+      </div>
+
+      <div class="btn-nav-white">
+        <a href="./mural.html">
+          <h3>Mural de Histórias</h3>
+        </a>
+      </div>
+
+      <div class="btn-logout" onclick="limparSessao()">
+        <h3>Sair</h3>
+      </div>
+    </div>
+
+    <div class="dash">
+      <div class="tela-grafico">
+        <div class="kpi-grafico">
+          <div class="kpi1">
+            <span>Sua Ultima Pontuação:</span>
+            <span><span id="ultimaPontuacao">0</span> de 16 pontos possíveis</span>
           </div>
-          <div class="card-grafico">
-          <div class="titulo-grafico"><p>Pontuação dos Jogadores no Quiz</p></div>
+          <div class="kpi2">
+            <span>Pontuação Média dos Jogadores:</span>
+            <span><span id="mediaPontuacaoJogador">0</span> de 16 pontos possíveis</span>
+          </div>
         </div>
-          <div class="dados-grafico">
-            <div class="grafico2">
-              <div>
-                <canvas id="myChart2"></canvas>
-              </div>
+        <div class="card-grafico">
+          <div class="titulo-grafico">
+            <p>Pontuação dos Jogadores no Quiz</p>
+          </div>
+        </div>
+        <div class="dados-grafico">
+          <div class="grafico2">
+            <div>
+              <canvas id="myChart2"></canvas>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
+  <script>
+    const pontuacao = sessionStorage.getItem('Pontos');
+    if (pontuacao == null) {
+      document.getElementById('ultimaPontuacao').innerHTML = '0';
+    } else {
+      document.getElementById('ultimaPontuacao').innerHTML = pontuacao;
+    }
 
-      const pontuacao = sessionStorage.getItem('Pontos');
-      if(pontuacao == null){
-        ultimaPontuacao.innerHTML = `0`
-      }else{
-      ultimaPontuacao.innerHTML = `${pontuacao}`}
-
-      document.addEventListener("DOMContentLoaded", function () {
-        // Obtém o ID do usuário da sessão
-        const idUsuario = sessionStorage.getItem('ID_USUARIO');
-        
-        if (idUsuario) {
-          // Faz uma requisição para obter a pontuação mais recente do usuário
-          fetch(`/quiz/listarPontos`)
-            .then(response => response.json())
-            .then(data => {
-              const ultimaPontuacao = data[0]["avg(qtdPontos)"];
-              // [data.length - 1].qtdPontos || 0;
-              document.getElementById('mediaPontuacaoJogador').textContent = Math.floor(parseFloat(ultimaPontuacao))
-            })
-            .catch(error => {
-              console.error('Erro ao obter pontuação:', error);
-            });
-        } else {
-          console.error('ID do usuário não encontrado na sessão.');
-        }
-
-        // Exibe o nome do usuário
-        document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        const ctx2 = document.getElementById("myChart2").getContext("2d");
-        new Chart(ctx2, {
-          type: "pie",
-          data: {
-            labels: ["até 10", "até 15", "16"],
-            datasets: [
-              {
-                label: "Distribuição dos resultados do quiz",
-                data: [12, 19, 3],
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.6)",
-                  "rgba(54, 162, 235, 0.6)",
-                  "rgba(255, 206, 86, 0.6)",
-                  "rgba(75, 192, 192, 0.6)",
-                  "rgba(153, 102, 255, 0.6)",
-                  "rgba(255, 159, 64, 0.6)",
-                ],
-                borderColor: [
-                  "rgba(255, 99, 132, 1)",
-                  "rgba(54, 162, 235, 1)",
-                  "rgba(255, 206, 86, 1)",
-                  "rgba(75, 192, 192, 1)",
-                  "rgba(153, 102, 255, 1)",
-                  "rgba(255, 159, 64, 1)",
-                ],
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: "top",
-              },
-              tooltip: {
-                enabled: true,
-              },
-            },
-          },
+    // Obtém o ID do usuário da sessão
+    const idUsuario = sessionStorage.getItem('ID_USUARIO');
+    if (idUsuario) {
+      // Faz uma requisição para obter a pontuação mais recente do usuário
+      fetch(`/quiz/listarPontos`)
+        .then(response => response.json())
+        .then(data => {
+          const ultimaPontuacao = data[0]["avg(qtdPontos)"];
+          document.getElementById('mediaPontuacaoJogador').textContent = Math.floor(parseFloat(ultimaPontuacao));
+        })
+        .catch(error => {
+          console.error('Erro ao obter pontuação:', error);
         });
-      });
-    </script>
-  </body>
+    } else {
+      console.error('ID do usuário não encontrado na sessão.');
+    }
+
+    // Exibe o nome do usuário
+    document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
+
+    function buscarPontuacao() {
+      fetch(`/grafico/buscarPontuacao`, { cache: 'no-store' })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Nenhum dado encontrado ou erro na API');
+          }
+        })
+        .then(resposta => {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          plotarGrafico(resposta);
+        })
+        .catch(error => {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+
+    function plotarGrafico(resposta) {
+      console.log('Iniciando plotagem do gráfico...');
+
+      // Criando estrutura para plotar gráfico - labels
+      let labels = ['Categorias'];
+
+      // Criando estrutura para plotar gráfico - dados
+      let dados = {
+        labels: labels,
+        datasets: [{
+          label: 'Até 10',
+          data: [],
+          backgroundColor: 'rgb(105,105,105)',
+          borderColor: 'rgb(105,105,105)',
+        },
+        {
+          label: 'Até 15',
+          data: [],
+          backgroundColor: 'rgb(218,165,32)',
+          borderColor: 'rgb(218,165,32)',
+        },
+        {
+          label: '16',
+          data: [],
+          backgroundColor: 'rgb(199, 52, 52)',
+          borderColor: 'rgb(199, 52, 52)',
+        }]
+      };
+
+      console.log('----------------------------------------------');
+      console.log('Estes dados foram recebidos pela função "buscarPontuacao" e passados para "plotarGrafico":');
+      console.log(resposta);
+
+      // Acessando o único objeto na primeira posição do array
+      const registro = resposta[0];
+      dados.datasets[0].data.push(registro.ate_10);
+      dados.datasets[1].data.push(registro.ate_15);
+      dados.datasets[2].data.push(registro.ate_16);
+
+      console.log('----------------------------------------------');
+      console.log('O gráfico será plotado com os respectivos valores:');
+      console.log('Labels:');
+      console.log(labels);
+      console.log('Dados:');
+      console.log(dados.datasets);
+      console.log('----------------------------------------------');
+
+      // Criando estrutura para plotar gráfico - config
+      const config = {
+        type: 'bar',
+        data: dados,
+        options: {
+          scales: {
+            x: {
+              beginAtZero: true
+            },
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      };
+
+      // Adicionando gráfico criado em div na tela
+      let myChart = new Chart(
+        document.getElementById('myChart2'),
+        config
+      );
+    }
+  </script>
+</body>
+
 </html>

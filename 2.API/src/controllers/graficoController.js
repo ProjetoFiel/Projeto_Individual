@@ -2,6 +2,8 @@ var graficoModel = require("../models/graficoModel");
 
 function buscarPontuacao(req, res) {
 
+    // var qtdPontos = req.params.qtdPontos;
+
     console.log(`Recuperando as pontuações dos jogadores`);
 
     graficoModel.buscarPontuacao().then(function (resultado) {

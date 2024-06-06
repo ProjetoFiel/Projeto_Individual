@@ -41,7 +41,7 @@ button {
   color: whitesmoke;
   position: relative;
 
-  border: 2px solid #e1e1e6;
+  border: 2px solid #747272;
   border-radius: 6px;
   padding: 16px;
   box-shadow: 0 0 2px 2px;
@@ -79,7 +79,7 @@ button {
 }
 
 .button {
-  background-color: #553592;
+  background-color: #606060;
   color: white;
   font-size: 16px;
   font-weight: bold;

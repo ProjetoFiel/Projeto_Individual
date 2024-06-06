@@ -25,25 +25,6 @@ CREATE TABLE quiz (
     FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
 );
 
-
-
-
-INSERT INTO usuario (nome, email, senha) VALUES ('Alice', 'alice@example.com', 'senha123');
-INSERT INTO usuario (nome, email, senha) VALUES ('Bob', 'bob@example.com', 'senha456');
-INSERT INTO usuario (nome, email, senha) VALUES ('Carol', 'carol@example.com', 'senha789');
-
-
-INSERT INTO aviso (titulo, descricao, fk_usuario) VALUES ('Aviso 1', 'Descrição do aviso 1', 1);
-INSERT INTO aviso (titulo, descricao, fk_usuario) VALUES ('Aviso 2', 'Descrição do aviso 2', 2);
-INSERT INTO aviso (titulo, descricao, fk_usuario) VALUES ('Aviso 3', 'Descrição do aviso 3', 3);
-INSERT INTO aviso (titulo, descricao, fk_usuario) VALUES ('Aviso 4', 'Descrição do aviso 4', 1);
-
-
-INSERT INTO quiz (qtdPontos, fkUsuario) VALUES (10, 1);
-INSERT INTO quiz (qtdPontos, fkUsuario) VALUES (20, 2);
-INSERT INTO quiz (qtdPontos, fkUsuario) VALUES (15, 3);
-INSERT INTO quiz (qtdPontos, fkUsuario) VALUES (25, 1);
-
 SELECT * FROM usuario;
 SELECT * FROM quiz;
 
